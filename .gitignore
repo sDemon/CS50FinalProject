@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+myvenv
+myBlog.sqlite3
+.DS_Store
+*.html~
+*.html.un~
