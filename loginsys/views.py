@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib import auth
 from django.views.decorators.csrf import requires_csrf_token
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegisterForm
 
 @requires_csrf_token
 def login(request):
@@ -27,9 +27,9 @@ def logout(request):
 @requires_csrf_token
 def register(request):
     args = {}
-    args['form'] = UserCreationForm()
+    args['form'] = UserRegisterForm()
     if request.method == "POST":
-        newuser_form = UserCreationForm(request.POST)
+        newuser_form = UserRegisterForm(request.POST)
         if newuser_form.is_valid():
             newuser_form.save()
             newuser = auth.authenticate(username=newuser_form.cleaned_data['username'], password=newuser_form.cleaned_data['password2'])

@@ -27,18 +27,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Email setting
+DEFAULT_FROM_EMAIL = 'no-reply@gmail.com'
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = 'key-123456789'
+MAILGUN_SERVER_NAME = 'sandbox123456789.mailgun.org'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'loginsys',
+    'article',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'article',
-    'loginsys',
 ]
 
 MIDDLEWARE = [
